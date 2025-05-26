@@ -1,6 +1,7 @@
 package com.event.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,4 +29,16 @@ public class TicketService {
         return ticketRepository.save(ticket);
 	}
 
+	public List<Ticket> getTicketsByOrganizer(int organizerId) {
+		 return ticketRepository.findTicketsByEventOrganizerId(organizerId);
+	}
+
+	 public List<Ticket> getTicketsByAttendee(int attendeeId) {
+	        return ticketRepository.findByAttendeeId(attendeeId);
+	    }
+
+	public List<Ticket> getTicketsByEventId(int eventId) {
+		// TODO Auto-generated method stub
+		return ticketRepository.findByEventId(eventId);
+	}
 }

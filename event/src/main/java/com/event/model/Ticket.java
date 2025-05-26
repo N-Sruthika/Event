@@ -20,14 +20,24 @@ public class Ticket {
     private double price;
     @Column(nullable=false)
     private LocalDateTime purchaseDate;
-    @Column(nullable=false, length=5)
+    @Column(length=5)
     private String seatNumber;
+    private int totalTicket;
 
     @ManyToOne
     private Event event;
     
     @ManyToOne
     private Attendee attendee;
+    
+
+	public int getTotalTicket() {
+		return totalTicket;
+	}
+
+	public void setTotalTicket(int totalTicket) {
+		this.totalTicket = totalTicket;
+	}
 
 	public Attendee getAttendee() {
 		return attendee;

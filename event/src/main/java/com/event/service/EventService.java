@@ -1,6 +1,5 @@
 package com.event.service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,25 +24,28 @@ public class EventService {
 	@Autowired
 	private OrganizerRepository organizerRepository;
 	
-	
-	public List<Event> getAllEvents() {
-		return eventRepository.findAll();
-	}
-	public Event getEventById(int id) throws InvalidIdException {
-		Optional<Event> optional=eventRepository.findById(id);
-		if(optional.isEmpty())
-			throw new InvalidIdException("Id not found");
-		return optional.get();
-	}
 	public Event createEvent(int oid, Event event) throws InvalidIdException {
 		Organizer organizer = organizerService.getOrganizerById(oid);
         event.setOrganizer(organizer);
         return eventRepository.save(event);
 	}
-	public List<Event> getEventsByOrganizerId(int organizerId) throws InvalidIdException {
-		Organizer organizer = organizerService.getOrganizerById(organizerId);
-        return eventRepository.findByOrganizer(organizer);
+	
+	public List<Event> getAllEvents() {
+		return eventRepository.findAll();
 	}
+	
+	public Event getEventById(int id) throws InvalidIdException {
+		Optional<Event> optional=eventRepository.findById(id);
+		if(optional.isEmpty())
+			throw new InvalidIdException("Event Id not found");
+		return optional.get();
+	}
+	
+	public List<Event> getEventsByOrganizerId(int organizerId) throws InvalidIdException {
+	    return eventRepository.findByOrganizerId(organizerId); // ✅ pass only the ID
+	}
+
+	
 	public Event updateEvent(int eventId, int organizerId, Event updatedEvent) throws InvalidIdException {
 		Organizer organizer = organizerService.getOrganizerById(organizerId);
 		if (organizer == null) {
@@ -61,6 +63,7 @@ public class EventService {
         event.setEventType(updatedEvent.getEventType());
 		return eventRepository.save(event);
 	}
+	
 	public void deleteEvent(int eventId, int organizerId) throws InvalidIdException {
 		Organizer organizer = organizerService.getOrganizerById(organizerId); 
 		if (organizer == null) {
@@ -90,16 +93,7 @@ public class EventService {
 	    event.setVenue(venue);
 	    return eventRepository.save(event);
 	}
-	public Event updateEventSchedule(int id, LocalDateTime start, LocalDateTime end) throws InvalidIdException {
-	    Optional<Event> eventOptional = eventRepository.findById(id);
-	    if (eventOptional.isEmpty()) {
-	        throw new InvalidIdException("Event not found");
-	    }
-	    Event event = eventOptional.get();
-	    event.setStartDateTime(start);
-	    event.setEndDateTime(end);
-	    return eventRepository.save(event);
-	}
+	
 	public Event scheduleEventByOrganizer(int organizerId, int eventId, int venueId, Event updatedEvent) throws InvalidIdException {
 	    Optional<Organizer> optionalOrganizer = organizerRepository.findById(organizerId);
 	    if (optionalOrganizer.isEmpty()) {
@@ -119,7 +113,7 @@ public class EventService {
 	    Event event = optionalEvent.get();
 
 	    // Ensure event belongs to the organizer
-	    if (event.getOrganizer() == null || event.getOrganizer().getId() != organizerId) {
+	    if (event.getOrganizer().getId() != organizerId) {
 	        throw new InvalidIdException("Event does not belong to the specified organizer");
 	    }
 
@@ -128,6 +122,21 @@ public class EventService {
 	    event.setVenue(optionalVenue.get());
 
 	    return eventRepository.save(event);
+	}
+
+	public int countEventsByOrganizerId(int organizerId) {
+		// TODO Auto-generated method stub
+		return eventRepository.countByOrganizerId(organizerId);
+	}
+
+	public int countAllEvents() {
+		// TODO Auto-generated method stub
+		 return (int) eventRepository.count();
+	}
+
+	public Event createEvent(Event event) {
+		// TODO Auto-generated method stub
+		return eventRepository.save(event);
 	}
 
 	
