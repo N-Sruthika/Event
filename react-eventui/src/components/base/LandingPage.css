@@ -1,0 +1,241 @@
+/* LandingPage.css */
+
+/* --- Base & Typography --- */
+body { /* Apply to body if this is the very first page and no other global styles exist */
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa; /* Light off-white background */
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Header --- */
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #ffffff; /* White header */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px; /* Adjust as needed */
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #2c3e50; /* Dark blue-grey for brand */
+  margin: 0;
+}
+
+.landing-nav a {
+  margin-left: 25px;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.landing-nav a:hover {
+  color: #007bff; /* Primary blue for hover */
+}
+
+/* --- Main Content --- */
+.landing-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  padding: 40px 20px;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 800px; /* Limit width for better readability */
+  margin: 0 auto; /* Center the hero content block */
+  /* Optional: Add a background or border
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08); */
+}
+
+.hero-content h2 {
+  font-size: 2.8em; /* Large, impactful heading */
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2em;
+  color: #5a6773; /* Softer text color */
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.cta-button {
+  padding: 14px 30px;
+  font-size: 1.1em;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cta-button.primary {
+  background-color: #007bff; /* Primary blue */
+  color: white;
+}
+.cta-button.primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.cta-button.secondary {
+  background-color: #6c757d; /* Secondary grey */
+  color: white;
+  /* Or make it an outline button:
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff; */
+}
+.cta-button.secondary:hover {
+  background-color: #545b62;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  /* For outline button hover:
+  background-color: #007bff;
+  color: white; */
+}
+
+/* Optional Hero Image Styling */
+.hero-image-container {
+  margin-top: 40px;
+  max-width: 600px;
+}
+.hero-image-container img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Optional Features Overview --- */
+.features-overview {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 60px;
+  padding: 40px 20px;
+  text-align: center;
+}
+.features-overview h3 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.feature-item {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+.feature-item h4 {
+  font-size: 1.2em;
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.feature-item p {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* --- Footer --- */
+.landing-footer {
+  text-align: center;
+  padding: 25px 20px;
+  background-color: #343a40; /* Dark footer */
+  color: #adb5bd; /* Light text for dark background */
+  font-size: 0.9em;
+}
+.landing-footer p {
+  margin: 0 0 10px 0;
+}
+.footer-links a {
+  color: #dee2e6;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .landing-header {
+    padding: 15px 20px;
+    flex-direction: column; /* Stack logo and nav on small screens */
+    gap: 10px;
+  }
+  .landing-nav a {
+    margin-left: 15px;
+  }
+  .hero-content h2 {
+    font-size: 2.2em;
+  }
+  .hero-subtitle {
+    font-size: 1.1em;
+  }
+  .cta-buttons {
+    flex-direction: column; /* Stack CTA buttons */
+    align-items: center;
+  }
+  .cta-button {
+    width: 100%;
+    max-width: 300px; /* Prevent buttons from becoming too wide */
+  }
+}

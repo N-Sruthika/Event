@@ -1,0 +1,33 @@
+.profile-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-container:hover {
+  box-shadow: 0 8px 28px rgba(30, 144, 255, 0.18);
+}
+
+.profile-heading {
+  color: #185a9d;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #185a9d;
+  padding-bottom: 0.5rem;
+}
+
+.profile-detail {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.profile-detail b {
+  color: #1c3f64;
+}

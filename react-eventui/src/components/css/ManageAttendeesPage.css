@@ -1,0 +1,225 @@
+/* Ensure global/shared styles for navbar, footer, .action-button are imported or defined */
+
+.organizer-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f7f6;
+}
+
+.manage-attendees-page-content {
+  padding: 20px 30px;
+  flex-grow: 1;
+}
+
+.page-header { /* Reusable style */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.page-header h1 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin: 0;
+}
+.header-actions .action-button { /* If you add buttons to header */
+  font-size: 0.95em;
+  padding: 10px 20px;
+}
+
+/* Filter and Search Section (reusable style) */
+.filter-and-search-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 250px;
+}
+.search-input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+  flex-grow: 1;
+  outline: none;
+}
+.search-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter-dropdown {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9em;
+  background-color: white;
+}
+.clear-filters-button {
+  background-color: #7f8c8d; /* Consistent with previous filter clear */
+  color: white;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  border: none;
+}
+.clear-filters-button:hover {
+  background-color: #5f6c6d;
+}
+
+/* Attendees List Table Section */
+.attendees-list-section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  overflow-x: auto;
+}
+
+.attendees-table { /* Can be styled like .events-table or .venues-table */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.attendees-table th,
+.attendees-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+  vertical-align: middle;
+}
+
+.attendees-table th {
+  background-color: #f8f9fa;
+  color: #34495e;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.attendees-table tr:hover {
+  background-color: #f1f5f8;
+}
+
+/* Status Badges for Attendees (can extend global .status-badge) */
+.status-badge.status-registered { background-color: #3498db; } /* Blue for registered */
+.status-badge.status-checked-in { background-color: #2ecc71; } /* Green for checked-in (same as upcoming event) */
+/* .status-badge.status-cancelled is already defined if global (red) */
+/* .status-badge.status-no-show { background-color: #e67e22; } Orange for no-show */
+
+.action-cell { /* Reusable style */
+  white-space: nowrap;
+}
+
+.table-action-button { /* Reusable style */
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.table-action-button:last-child {
+  margin-right: 0;
+}
+.table-action-button.view-details { /* Consistent with previous view buttons */
+  background-color: #3498db;
+  color: white;
+}
+.table-action-button.view-details:hover {
+  background-color: #2980b9;
+}
+/* Add styles for other specific attendee actions if needed */
+/* e.g., .table-action-button.resend-ticket {} */
+
+
+/* No Data Message (reusable style) */
+.no-data-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #555;
+}
+.no-data-message p {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+/* Pagination Section (reusable style) */
+.pagination-section {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+/* ... (pagination button and info styles - copy from ManageVenuesPage.css or global) ... */
+.pagination-button {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.pagination-button:hover:not(:disabled) {
+  background-color: #ecf0f1;
+}
+.pagination-button:disabled {
+  color: #aaa;
+  cursor: not-allowed;
+}
+.pagination-info {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* --- Navbar and Footer styles (should be in a global CSS ideally or copied) --- */
+/* Use the global Navbar and Footer styles provided previously */
+
+/* Action button base styles (ensure these are defined globally or here) */
+.action-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.action-button.primary {
+  background-color: #3498db;
+  color: white;
+}
+.action-button.primary:hover {
+  background-color: #2980b9;
+}
+/* ... (other shared styles like status badges if not fully global) ... */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+  text-transform: capitalize;
+  min-width: 70px;
+  text-align: center;
+}
+.status-badge.status-cancelled { background-color: #e74c3c; }

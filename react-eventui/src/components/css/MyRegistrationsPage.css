@@ -1,0 +1,279 @@
+/* MyRegistrationsPage.css */
+
+/* --- Base & Page Container (if not global) --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f7f9;
+}
+
+.my-registrations-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Navbar (Assuming .attendee-navbar styles are defined globally or in AttendeeDashboard.css) --- */
+.attendee-navbar {
+  background-color: #343a40;
+  color: #f8f9fa;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+/* ... (rest of your .attendee-navbar, .navbar-brand, .navbar-links, .nav-link, .user-actions styles) ... */
+.attendee-navbar .nav-link.active {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+
+/* --- Main Content Area --- */
+.my-registrations-content {
+  flex-grow: 1;
+  padding: 25px 30px;
+  max-width: 900px; /* Slightly narrower for a list view */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header-registrations {
+  text-align: left; /* Align header text to the left */
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.page-header-registrations h1 {
+  font-size: 2em; /* Slightly smaller for a list page */
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+.page-header-registrations p {
+  font-size: 1.05em;
+  color: #5a6773;
+}
+
+/* --- Simplified Registrations List --- */
+.registrations-list-simplified {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between each event card */
+}
+
+.registered-event-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-between; /* Pushes actions to the right */
+  align-items: center; /* Vertically align content and actions */
+  padding: 20px 25px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+.registered-event-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.event-card-main-info {
+  flex-grow: 1; /* Allows this section to take available space */
+}
+
+.event-card-main-info h2 {
+  font-size: 1.3em;
+  color: #007bff; /* Event name as a link-like color */
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.event-info-simplified {
+  font-size: 0.9em;
+  color: #495057;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+.event-info-simplified .icon {
+  margin-right: 8px;
+  color: #6c757d;
+  font-size: 1em; /* Adjust icon size */
+}
+.event-info-simplified strong {
+  color: #343a40;
+  min-width: 50px; /* Adjust for alignment */
+  display: inline-block;
+}
+
+.past-event-tag {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #6c757d;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.registered-event-card.past-event .event-card-main-info h2 {
+    color: #5a6268; /* Muted color for past events */
+}
+
+
+.registered-event-actions {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between "View Details" and "View Ticket" */
+  margin-left: 20px; /* Space from the main info */
+  flex-shrink: 0; /* Prevent action buttons from shrinking too much */
+}
+
+.action-link-event {
+  color: #6c757d; /* Subtler link color for details */
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: 500;
+  text-align: right;
+}
+.action-link-event:hover {
+  text-decoration: underline;
+  color: #545b62;
+}
+
+.action-button-ticket { /* For the "View Ticket" button */
+  padding: 8px 18px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  min-width: 120px; /* Give button some width */
+}
+.action-button-ticket.primary {
+  background-color: #007bff;
+  color: white;
+}
+.action-button-ticket.primary:hover {
+  background-color: #0056b3;
+}
+.action-button-ticket.secondary { /* For past event tickets if styled differently */
+  background-color: #6c757d;
+  color: white;
+}
+.action-button-ticket.secondary:hover {
+  background-color: #545b62;
+}
+
+
+/* No Registrations Message (copied from previous for consistency) */
+.no-registrations-message {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+/* ... (rest of .no-registrations-message styles, and .action-button-attendee.browse-now) ... */
+.no-registrations-message h3 { font-size: 1.5em; color: #34495e; margin-bottom: 10px; }
+.no-registrations-message p { color: #555; margin-bottom: 25px; }
+.action-button-attendee.browse-now { padding: 12px 25px; font-size: 1em; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+.action-button-attendee.browse-now:hover { background-color: #0056b3; }
+
+
+/* --- Footer (Assuming .attendee-footer styles are defined globally or in AttendeeDashboard.css) --- */
+.attendee-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #e9ecef;
+  color: #495057;
+  font-size: 0.9em;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+  .my-registrations-content { padding: 20px 15px; }
+  .page-header-registrations h1 { font-size: 1.6em; }
+
+  .registered-event-card {
+    flex-direction: column; /* Stack info and actions vertically */
+    align-items: stretch; /* Make children take full width */
+  }
+  .registered-event-actions {
+    margin-left: 0;
+    margin-top: 15px;
+    flex-direction: row; /* Buttons side-by-side on small screens if they fit */
+    justify-content: space-between; /* Or flex-end */
+    align-items: center;
+  }
+  .action-link-event {
+    text-align: left;
+    margin-bottom: 5px; /* If buttons stack again */
+  }
+  .action-button-ticket {
+    width: auto; /* Allow button to size to content or flex-grow */
+    flex-grow: 1; /* Example: make buttons share space */
+  }
+  .registered-event-actions > *:not(:last-child) {
+     margin-right: 10px; /* Space between buttons if side-by-side */
+  }
+}
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #1a4fbd;
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-container input {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.action-button.submit {
+  background-color: #1a4fbd;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-button.submit:hover {
+  background-color: #10398a;
+}
